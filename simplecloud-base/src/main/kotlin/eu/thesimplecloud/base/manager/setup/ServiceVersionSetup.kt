@@ -46,7 +46,7 @@ class ServiceVersionSetup : ISetup {
     private lateinit var name: String
     private lateinit var serviceAPIType: ServiceAPIType
     private lateinit var downloadURL: String
-    private lateinit var javaCommand: String,
+    private lateinit var javaCommand: String
     private var isPaperclip: Boolean = false
 
     @SetupQuestion(0, "manager.setup.service-versions.question.name")
