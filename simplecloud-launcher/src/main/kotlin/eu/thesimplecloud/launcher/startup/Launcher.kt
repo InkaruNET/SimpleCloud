@@ -89,11 +89,14 @@ class Launcher(val launcherStartArguments: LauncherStartArguments) {
     var launcherConfig: LauncherConfig
         private set
     private val startedTime = System.currentTimeMillis()
+    var forkVersion = "1.1"
 
     init {
         instance = this
         if (System.getProperty("simplecloud.version") == null)
             System.setProperty("simplecloud.version", Launcher::class.java.`package`.implementationVersion)
+        if (System.getProperty("simplecloud.forkVersion") == null)
+            System.setProperty("simplecloud.forkVersion", forkVersion)
         Thread.setDefaultUncaughtExceptionHandler { thread, cause ->
             try {
                 this.logger.exception(cause)

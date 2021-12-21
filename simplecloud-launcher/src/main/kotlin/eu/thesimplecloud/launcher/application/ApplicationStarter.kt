@@ -43,6 +43,7 @@ class ApplicationStarter {
         val createClassLoaderFunction: (Array<URL>, String) -> ClassLoader = { urls, name -> ApplicationClassLoader(urls, launcherClassLoader, name, moduleHandler) }
         val moduleFileName = applicationType.name.toLowerCase() + ".json"
         val file = File(DirectoryPaths.paths.storagePath + "base.jar")
+        Launcher.instance.consoleSender.sendMessage("Your SimpleCloud version is " + System.getProperty("simplecloud.version") + " and fork version is " + System.getProperty("simplecloud.forkVersion"))
         Launcher.instance.consoleSender.sendMessage("You are running a fork of SimpleCloud by Suqatri and Dayeeet!")
         /*
 
