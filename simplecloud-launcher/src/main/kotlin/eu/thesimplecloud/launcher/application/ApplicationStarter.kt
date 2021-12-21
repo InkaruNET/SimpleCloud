@@ -43,6 +43,9 @@ class ApplicationStarter {
         val createClassLoaderFunction: (Array<URL>, String) -> ClassLoader = { urls, name -> ApplicationClassLoader(urls, launcherClassLoader, name, moduleHandler) }
         val moduleFileName = applicationType.name.toLowerCase() + ".json"
         val file = File(DirectoryPaths.paths.storagePath + "base.jar")
+        Launcher.instance.consoleSender.sendMessage("You are running a fork of SimpleCloud by Suqatri and Dayeeet!")
+        /*
+
         if (!Launcher.instance.launcherStartArguments.disableAutoUpdater || !file.exists()) {
             Launcher.instance.consoleSender.sendMessage("Checking for base updates...")
 
@@ -55,6 +58,7 @@ class ApplicationStarter {
                 Launcher.instance.consoleSender.sendMessage("You are running the latest version of SimpleCloud.")
             }
         }
+         */
         val moduleFileContent = moduleHandler.loadModuleFileContent(file, moduleFileName)
         val loadedModuleFileContent = LoadedModuleFileContent(file, moduleFileContent, null)
         val loadedModule = UnsafeModuleLoader(createClassLoaderFunction).loadModule(loadedModuleFileContent)
