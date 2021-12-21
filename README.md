@@ -29,7 +29,7 @@ This is a fork of the official [theSimpleCloud](https://github.com/theSimpleClou
 
 ## Supported Versions
 <ul>
-  <li>1.13-1.18 | supported by default ([Official](https://github.com/theSimpleCloud/SimpleCloud)</li>
+  <li>1.13-1.18 | supported by default [Official](https://github.com/theSimpleCloud/SimpleCloud)</li>
   <li>1.8 | support added by this fork</li>
   <li>1.9-1.12 | you need to patch your server.jar with [simplecloud-dependency-fixer
 ](https://github.com/SmashGames/simplecloud-dependency-fixer)</li>
