@@ -59,9 +59,6 @@ class ServiceVersionWebLoader : IServiceVersionLoader {
 
 
         jsonLib.saveAsFile(file)
-
-        //Can be removed if the online versions file contains "javaCommand"
-        val list = jsonLib.getObject(Array<ServiceVersion>::class.java).toList()
-        return list.map { ServiceVersion(it.name, it.serviceAPIType, it.downloadURL, it.javaCommand) }
+        return jsonLib.getObject(Array<ServiceVersion>::class.java).toList()
     }
 }
