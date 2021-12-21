@@ -25,7 +25,7 @@
 <br />
 
 ## Information
-This is a fork of the official [theSimpleCloud](https://github.com/theSimpleCloud/SimpleCloud). The idea of this fork is to add support for old minecraft versions again, because the official cloud no longer supports them. In addition, functions such as custom service version template are added to make it easier to manage older versions with newer minecraft versions. Please note that this fork works, but is not 100 percent stable.
+This is a fork of the official [theSimpleCloud](https://github.com/theSimpleCloud/SimpleCloud). The idea of this fork is to add support for old minecraft versions again, because the official cloud no longer supports them. In addition, functions such as custom service version template are added to make it easier to manage older versions with newer minecraft versions. Please note that this fork works, but is not 100 percent stable. [Official](https://github.com/theSimpleCloud/SimpleCloud)
 
 ## Supported Versions
 <ul>
