@@ -69,8 +69,10 @@ class CreateCommand : ICommandHandler {
 
     @CommandSubPath("template <name>", "Creates a template")
     fun createTemplate(@CommandArgument("name") name: String) {
-        if (name.length > 16) {
+        val versionTemplate = name.startsWith("EVERY_VERSION_")
+        if (name.length > 16 && !versionTemplate) {
             Launcher.instance.consoleSender.sendProperty("manager.command.create.template.name-too-long")
+            return
         }
         if (templateManager.getTemplateByName(name) != null) {
             Launcher.instance.consoleSender.sendProperty("manager.command.create.template.already-exist", name)
