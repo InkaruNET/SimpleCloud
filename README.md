@@ -28,7 +28,7 @@
 This is a fork of the official [theSimpleCloud](https://github.com/theSimpleCloud/SimpleCloud). The idea of this fork is to add support for old minecraft versions again, because the official cloud no longer supports them. In addition, functions such as custom service version template are added to make it easier to manage older versions with newer minecraft versions. Please note that this fork works, but is not 100 percent stable.
 
 ## Supported Versions
-  • 1.13-1.18 | supported by default [Official](https://github.com/theSimpleCloud/SimpleCloud) <br />
+  • 1.13-1.18 | [officially](https://github.com/theSimpleCloud/SimpleCloud) supported <br />
   • 1.8 | support added by this fork <br />
   • 1.9-1.12 | you need to patch your server.jar with [simplecloud-dependency-fixer
 ](https://github.com/SmashGames/simplecloud-dependency-fixer) <br />
