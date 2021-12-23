@@ -42,9 +42,9 @@ For example, 1.8 servers need a different Worldedit Jar than 1.18 server. That i
 ## Update from official to this fork
 !! Backup your cloud !!
 1. Download the latest [release](https://github.com/InkaruNET/SimpleCloud/releases). 
-2. Delete following files:
-  • launcher.json
-  • launcher.jar
-  • storage/base.jar
-  • storage/onlineServiceVersions.json
+2. Delete following files:<br />
+  • launcher.json<br />
+  • launcher.jar<br />
+  • storage/base.jar<br />
+  • storage/onlineServiceVersions.json<br />
 3. Move the contents of the ZIP into the cloud folder (replace already existing files)
