@@ -40,6 +40,9 @@ Just create your own service version with `create serviceversion` and enter e.g.
 For example, 1.8 servers need a different Worldedit Jar than 1.18 server. That is why there is a template folder for every service version. This is used as a template for all groups with the corresponding service version. Simply create a template (with `create template`) which is called `EVERY_VERSION_PAPER_1_8_8`. Replaces `PAPER_1_8_8` for your service version.
 
 ## Update from official to this fork
+
+Video: [YouTube](https://youtu.be/iFwnzjxeDCQ)
+
 !! Backup your cloud !!
 1. Download the latest [release](https://github.com/InkaruNET/SimpleCloud/releases). 
 2. Delete following files:<br />
