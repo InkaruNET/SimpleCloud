@@ -20,16 +20,14 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package eu.thesimplecloud.launcher.config
+package eu.thesimplecloud.api.javaversions
 
-import eu.thesimplecloud.api.config.AbstractJsonLibConfigLoader
-import eu.thesimplecloud.api.directorypaths.DirectoryPaths
-import eu.thesimplecloud.api.javaversions.JavaVersions
-import java.io.File
-
-class LauncherConfigLoader : AbstractJsonLibConfigLoader<LauncherConfig>(
-        LauncherConfig::class.java,
-        File("launcher.json"),
-        { LauncherConfig("127.0.0.1", 1630, "en", DirectoryPaths(), JavaVersions()) },
-        false
-)
+class JavaVersions(
+        var java8: String = "/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/bin/java",
+        var java16: String = "/usr/lib/jvm/java-16-oracle/bin/java",
+        var java17: String = "/usr/lib/jvm/jdk-17/bin/java",
+        ) {
+    companion object {
+        lateinit var paths: JavaVersions
+    }
+}

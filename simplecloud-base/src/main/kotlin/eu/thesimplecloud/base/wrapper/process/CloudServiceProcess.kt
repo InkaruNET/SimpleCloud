@@ -25,6 +25,7 @@ package eu.thesimplecloud.base.wrapper.process
 import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.client.NetworkComponentType
 import eu.thesimplecloud.api.event.service.CloudServiceUnregisteredEvent
+import eu.thesimplecloud.api.javaversions.JavaVersions
 import eu.thesimplecloud.api.listenerextension.cloudListener
 import eu.thesimplecloud.api.service.ICloudService
 import eu.thesimplecloud.api.service.ServiceState
@@ -166,7 +167,32 @@ class CloudServiceProcess(private val cloudService: ICloudService) : ICloudServi
         val jvmArguments = Wrapper.instance.jvmArgumentsConfig.jvmArguments.filter {
             it.groups.contains("all") || it.groups.contains(this.cloudService.getGroupName()) || it.groups.contains(this.cloudService.getServiceType().name)
         }
-        val startCommand = this.cloudService.getServiceVersion().javaCommand;
+        var startCommand = this.cloudService.getServiceVersion().javaCommand
+        var javaPath = ""
+        var replacement = "";
+        when {
+            startCommand.contains("java8") -> {
+                javaPath = JavaVersions.paths.java8
+                replacement = "java8"
+            }
+            startCommand.contains("java16") -> {
+                javaPath = JavaVersions.paths.java16
+                replacement = "java16"
+            }
+            startCommand.contains("java17") -> {
+                javaPath = JavaVersions.paths.java17
+                replacement = "java17"
+            }
+        }
+        if(javaPath.isNotEmpty()){
+            val javaFile = File(javaPath);
+            if(!javaFile.exists()){
+                Launcher.instance.consoleSender.sendMessage("Cant find java version $startCommand in path $javaPath")
+            }else{
+                startCommand = startCommand.replace(replacement, javaPath)
+            }
+        }
+
         val commands = mutableListOf(startCommand)
 
         jvmArguments.forEach { commands.addAll(it.arguments) }
