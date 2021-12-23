@@ -45,6 +45,7 @@ For example, 1.8 servers need a different Worldedit Jar than 1.18 server. That i
 2. Delete following files:<br />
   • launcher.json<br />
   • launcher.jar<br />
+  • runner.jar<br />
   • storage/base.jar<br />
   • storage/onlineServiceVersions.json<br />
   • storage/minecraftJars<br />
