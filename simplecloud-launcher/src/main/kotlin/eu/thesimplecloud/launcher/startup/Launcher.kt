@@ -88,7 +88,7 @@ class Launcher(val launcherStartArguments: LauncherStartArguments) {
     var launcherConfig: LauncherConfig
         private set
     private val startedTime = System.currentTimeMillis()
-    var forkVersion = "1.2"
+    var forkVersion = "1.2.1"
 
     init {
         instance = this
