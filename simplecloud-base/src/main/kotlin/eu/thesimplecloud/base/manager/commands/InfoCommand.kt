@@ -32,6 +32,7 @@ import eu.thesimplecloud.launcher.console.command.annotations.CommandSubPath
 import eu.thesimplecloud.launcher.console.command.provider.ServiceCommandSuggestionProvider
 import eu.thesimplecloud.launcher.console.command.provider.ServiceGroupCommandSuggestionProvider
 import eu.thesimplecloud.launcher.console.command.provider.WrapperCommandSuggestionProvider
+import eu.thesimplecloud.launcher.startup.Launcher
 
 @Command("info", CommandType.CONSOLE_AND_INGAME, "cloud.command.info")
 class InfoCommand : ICommandHandler {
@@ -46,6 +47,11 @@ class InfoCommand : ICommandHandler {
         commandSender.sendMessage(wrapper.toString())
     }
 
+    @CommandSubPath("cloud", "Prints some information about the cloud")
+    fun cloud(commandSender: ICommandSender) {
+        commandSender.sendMessage("Cloud-Version: " + Launcher.instance.getCurrentVersion() + " | Fork-Version: " + Launcher.instance.forkVersion)
+        commandSender.sendMessage("Fork by Suqatri and created for Inkaru.net | https://discord.gg/FsDTGUfwh9")
+    }
 
     @CommandSubPath("service <name>", "Prints some information about the specified service")
     fun service(commandSender: ICommandSender, @CommandArgument("name", ServiceCommandSuggestionProvider::class) name: String) {
