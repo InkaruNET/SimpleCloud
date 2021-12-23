@@ -24,6 +24,7 @@ package eu.thesimplecloud.launcher.startup
 
 import eu.thesimplecloud.api.directorypaths.DirectoryPaths
 import eu.thesimplecloud.api.external.ICloudModule
+import eu.thesimplecloud.api.javaversions.JavaVersions
 import eu.thesimplecloud.launcher.application.ApplicationStarter
 import eu.thesimplecloud.launcher.application.CloudApplicationType
 import eu.thesimplecloud.launcher.application.ICloudApplication
@@ -37,9 +38,7 @@ import eu.thesimplecloud.launcher.language.LanguageFileLoader
 import eu.thesimplecloud.launcher.logging.LoggerProvider
 import eu.thesimplecloud.launcher.screens.IScreenManager
 import eu.thesimplecloud.launcher.screens.ScreenManagerImpl
-import eu.thesimplecloud.launcher.setups.AutoIpSetup
-import eu.thesimplecloud.launcher.setups.LanguageSetup
-import eu.thesimplecloud.launcher.setups.StartSetup
+import eu.thesimplecloud.launcher.setups.*
 import eu.thesimplecloud.launcher.updater.RunnerUpdater
 import eu.thesimplecloud.launcher.updater.UpdateExecutor
 import eu.thesimplecloud.loader.dependency.DependencyLoader
@@ -134,8 +133,22 @@ class Launcher(val launcherStartArguments: LauncherStartArguments) {
 
         if (LanguageFileLoader.isFirstStart)
             this.setupManager.queueSetup(LanguageSetup())
-        if (!this.launcherConfigLoader.doesConfigFileExist())
+        if (!this.launcherConfigLoader.doesConfigFileExist()){
             this.setupManager.queueSetup(AutoIpSetup())
+        }
+        var javaFile = File(JavaVersions.paths.java8)
+        if(!javaFile.exists() && JavaVersions.paths.java8 != "java"){
+            this.setupManager.queueSetup(Java8Setup())
+        }
+        javaFile = File(JavaVersions.paths.java16)
+        if(!javaFile.exists() && JavaVersions.paths.java16 != "java"){
+            this.setupManager.queueSetup(Java16Setup())
+        }
+        javaFile = File(JavaVersions.paths.java17)
+        if(!javaFile.exists() && JavaVersions.paths.java17 != "java"){
+            this.setupManager.queueSetup(Java17Setup())
+        }
+
         if (this.launcherStartArguments.startApplication == null)
             this.setupManager.queueSetup(StartSetup())
 
