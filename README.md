@@ -48,5 +48,5 @@ For example, 1.8 servers need a different Worldedit Jar than 1.18 server. That i
   • storage/base.jar<br />
   • storage/onlineServiceVersions.json<br />
   • storage/minecraftJars<br />
-3. Move the contents of the ZIP into the cloud folder (replace already existing files)
+3. Move the contents of the ZIP into the cloud folder (replace already existing files)<br>
   • !! If you want to use your old module configs, you dont need to replace the modules folder from the zip !!
