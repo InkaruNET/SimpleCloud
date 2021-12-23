@@ -109,6 +109,7 @@ class Launcher(val launcherStartArguments: LauncherStartArguments) {
         }
         System.setProperty("user.language", "en")
         this.launcherConfig = this.launcherConfigLoader.loadConfig()
+        JavaVersions.paths = launcherConfig.javaVersions
         DirectoryPaths.paths = launcherConfig.directoryPaths
         this.commandManager = CommandManager()
         this.consoleManager = ConsoleManager(this.commandManager, this.consoleSender)
