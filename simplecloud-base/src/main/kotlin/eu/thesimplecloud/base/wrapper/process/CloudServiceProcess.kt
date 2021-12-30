@@ -169,7 +169,7 @@ class CloudServiceProcess(private val cloudService: ICloudService) : ICloudServi
         }
         var startCommand = this.cloudService.getServiceVersion().javaCommand
         var javaPath = ""
-        var replacement = "";
+        var replacement = ""
         when {
             startCommand.contains("java8") -> {
                 javaPath = JavaVersions.paths.java8
