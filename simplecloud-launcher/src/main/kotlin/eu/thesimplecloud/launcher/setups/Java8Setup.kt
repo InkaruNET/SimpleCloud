@@ -11,6 +11,14 @@ class Java8Setup : ISetup{
 
     @SetupQuestion(0, "The cloud could not find the java 8 path. Please enter it manually. If you dont need java 8 for services, enter `java`")
     fun setupJava8(path: String): Boolean{
+        if(path.equals("java")){
+            Launcher.instance.consoleSender.sendMessage("Java 8 path skipped. Path was set to the default java path!")
+            val launcherConfig = Launcher.instance.launcherConfig
+            launcherConfig.javaVersions.java8 = "java"
+            val config = LauncherConfig(launcherConfig.host, launcherConfig.port, launcherConfig.language, launcherConfig.directoryPaths, launcherConfig.javaVersions)
+            Launcher.instance.replaceLauncherConfig(config)
+            return true
+        }
         val filePath = File(path)
         return if(filePath.exists()){
             Launcher.instance.consoleSender.sendMessage("Path was set successfully!")
